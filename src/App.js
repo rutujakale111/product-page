@@ -5,6 +5,8 @@ import ProductList from "./components/ProductList";
 import ProductDetails from "./components/ProductDetails";
 import CartPage from "./components/CartPage";
 import { CartProvider } from "./context/CartContext";
+import PaymentPage from "./components/PaymentPage";
+
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
           <Route path="/" element={<ProductList />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          
         </Routes>
       </Router>
     </CartProvider>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import axios from "axios";
 import "../styles.css";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const { addToCart } = useCart();
+  const [products, setProducts] = useState([]); // ✅ DEFINE products
+  const { addToCart } = useCart();              // ✅ DEFINE addToCart
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -14,6 +15,10 @@ const ProductList = () => {
       .then((response) => setProducts(response.data))
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
+
+  const handleBuyNow = (product) => {
+    navigate("/payment", { state: { product } }); // ✅ Pass product data if needed
+  };
 
   return (
     <div className="product-container">
@@ -28,9 +33,9 @@ const ProductList = () => {
             <button onClick={() => addToCart(product)} className="add-to-cart-btn">
               Add to Cart
             </button>
-            <Link to="/payment">
-              <button className="buy-now-btn">Buy Now</button>
-            </Link>
+            <button onClick={() => handleBuyNow(product)} className="buy-now-btn">
+              Buy Now
+            </button>
           </div>
         </div>
       ))}
@@ -38,4 +43,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default ProductList; // ✅ EXPORT DEFAULT
