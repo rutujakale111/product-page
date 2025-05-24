@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { FaShoppingCart } from "react-icons/fa";
-import "../styles.css"; // Add this line
+import "../styles.css"; 
 
 const Navbar = () => {
   const { cart } = useCart();

@@ -4,7 +4,6 @@ import { useCart } from "../context/CartContext";
 const CartPage = () => {
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
 
-  // Calculate the total price of all items in the cart
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (

@@ -5,8 +5,8 @@ import axios from "axios";
 import "../styles.css";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]); // ✅ DEFINE products
-  const { addToCart } = useCart();              // ✅ DEFINE addToCart
+  const [products, setProducts] = useState([]);
+  const { addToCart } = useCart();            
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const ProductList = () => {
   }, []);
 
   const handleBuyNow = (product) => {
-    navigate("/payment", { state: { product } }); // ✅ Pass product data if needed
+    navigate("/payment", { state: { product } }); 
   };
 
   return (
@@ -43,4 +43,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList; // ✅ EXPORT DEFAULT
+export default ProductList; 

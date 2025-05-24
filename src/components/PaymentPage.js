@@ -11,7 +11,7 @@ const PaymentPage = () => {
 
   const handlePayment = () => {
     alert(`Processing payment for ${product.title}`);
-    // Add payment logic here
+   
   };
 
   return (
